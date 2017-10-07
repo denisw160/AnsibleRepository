@@ -1,0 +1,31 @@
+# file: roles/docker/tasks/main.yml
+
+#
+# This playbook install Docker on the server.
+#
+
+# Docker
+ - name: Add signing key for docker
+   apt_key:
+     url: https://download.docker.com/linux/ubuntu/gpg
+     state: present
+
+ - name: Adding docker repository
+   apt_repository:
+     repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
+     state: present
+
+ - name: Updating system
+   apt: 
+    update_cache: yes
+    upgrade: dist
+
+ - name: Install docker
+   apt:
+    name: docker-ce
+    state: present
+
+ - name: Starting docker
+   service:
+    name: docker 
+    state: started

@@ -12,3 +12,4 @@
   become_method: sudo
   roles:
     - java
+    - docker
