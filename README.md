@@ -116,7 +116,10 @@ The following roles can be used and customized in the Ansible playbooks. All pla
  	- Installs the Mariadb database.
  - postgresql
  	- Installs the Postgresql database.
-
+ - mongodb
+ 	- Installs the MongoDB.
+ - cassandra
+ 	- Installs Apache Cassandra.
 
 ## Variables
 

@@ -1,0 +1,25 @@
+# file: roles/cassandra/tasks/main.yml
+
+#
+# This playbook installed the cassandra nosql database
+#
+
+# Cassandra
+- name: Adding cassandra repository
+  apt_repository:
+      repo: deb http://www.apache.org/dist/cassandra/debian 311x main
+      state: present
+      filename: 'cassandra'
+- name: Adding cassandra repository key
+  apt_key:
+    url: https://www.apache.org/dist/cassandra/KEYS
+    state: present
+- name: Update all packages to the latest version
+  apt:
+    update_cache: yes
+- name: Install cassandra
+  apt:
+    name: cassandra
+- name: Install Java Native Access (JNA)
+  apt:
+    name: libjna-java

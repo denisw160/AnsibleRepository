@@ -13,3 +13,5 @@
   roles:
     - mariadb
     - postgresql
+    - mongodb
+    - cassandra
