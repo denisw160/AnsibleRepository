@@ -131,19 +131,21 @@ The following roles can be used and customized in the Ansible playbooks. All pla
  - docker-maven
  	- Install a script to run maven as container.
  - docker-adminer 
- 	- Deploy container Adminer on Port 9001. 
+ 	- Deploy container Adminer on port 9001. 
  - docker-postgres
- 	- Deploy container PostgreSQL on Port 9432.
+ 	- Deploy container PostgreSQL on port 9432.
  - docker-sonarqube
- 	- Running SonarQube with PostgreSQL on Port 9090.
+ 	- Running SonarQube with PostgreSQL on port 9090.
  - docker-jenkins
- 	- Deploy container Jenkins on Port 9091 and 50000.
+ 	- Deploy container Jenkins on ports 9091 and 50000.
  - docker-gitlab
- 	- Deploy container GitLab on Port 9080, 9443 and 2222.
+ 	- Deploy container GitLab on ports 9080, 9443 and 2222.
  - portainer
- 	- Deploy Portainer on Port 9000. 
+ 	- Deploy Portainer on port 9000. 
  - rancher
- 	- Deploy Rancher on Port 9000. 
+ 	- Deploy Rancher on port 9000. 
+ - eclipse-che
+ 	- Running cloud development on port 8080
 
 ## Variables
 

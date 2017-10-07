@@ -1,0 +1,19 @@
+# file: roles/eclipse-che/tasks/main.yml
+
+#
+# This playbook deploy Eclipse Che as docker container.
+#
+
+# Eclipse Che 
+ - name: Deploy container eclipse che 
+   docker_container:
+    name: eclipse-che-server
+    image: eclipse/che:latest
+    state: started
+    restart_policy: always
+    privileged: yes
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /opt/che/data:/data
+      - /opt/che/instance:/data/instance
+      - /opt/che/backup:/data/backup

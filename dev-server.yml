@@ -17,15 +17,20 @@
     - docker-registry
     - docker-cleanup
     - docker-maven
-    - docker-adminer
-    - docker-postgres
+
+    # Optional Database
+    #- docker-postgres
+    #- docker-adminer
 
     # Optional extentions
     #- docker-jenkins
     #- docker-sonarqube
-    - docker-gitlab
+    #- docker-gitlab
+
+    # Cloud Workspace (optional)
+    - eclipse-che
     
-    # choose an management tool for docker container
+    # choose an management tool for docker container (optional)
     #- portainer
     #- rancher
 
