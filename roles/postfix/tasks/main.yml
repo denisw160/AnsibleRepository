@@ -23,3 +23,6 @@
   notify:
     - restart postfix
     - postfix setup changed
+
+# TODO setup credentials for replayhost
+# TODO setup mail domain(s)
