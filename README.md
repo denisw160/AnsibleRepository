@@ -46,7 +46,7 @@ Login in the server (via ssh) with your admin account and execute the following 
     $ sudo nano /etc/ansible/hosts
     ```
     by add the following lines
-    ```
+    ```ini
     # Server
     [server]
     localhost
@@ -57,7 +57,7 @@ Login in the server (via ssh) with your admin account and execute the following 
     $ ansible server -m ping
     ```
     The result look like that
-    ```
+    ```xml
     localhost | SUCCESS => {
         "changed": false,
         "ping": "pong"
