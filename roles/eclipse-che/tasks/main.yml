@@ -16,5 +16,5 @@
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /opt/che/data:/data
-      - /opt/che/instance:/data/instance
-      - /opt/che/backup:/data/backup
+      #- /opt/che/instance:/data/instance
+      #- /opt/che/backup:/data/backup
