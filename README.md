@@ -1,6 +1,5 @@
 # Repository for Ansible
 
-* auto-gen TOC:
 {:toc}
 
 ## Installation
