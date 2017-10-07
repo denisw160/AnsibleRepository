@@ -1,0 +1,11 @@
+# file: roles/apache2/handlers/main.yml
+
+#
+# This handlers are used for the apache installation.
+#
+
+# Restart apache
+- name: restart apache2
+  service:
+    name: apache2
+    state: restarted

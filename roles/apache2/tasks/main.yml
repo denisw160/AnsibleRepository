@@ -1,0 +1,107 @@
+# file: roles/apache2/tasks/main.yml
+
+#
+# This playbook installed and configure the apache server with php.
+#
+
+# Web-Server
+- name: Install apache httpd2
+  apt:
+    name: apache2
+- name: Install PHP
+  apt:
+    name: php
+- name: Install libapache2-mod-php
+  apt:
+    name: libapache2-mod-php
+- name: Install phpmyadmin
+  apt:
+    name: phpmyadmin
+  when: feature_phpmyadmin
+- name: Install phppgadmin
+  apt:
+    name: phppgadmin
+  when: feature_phppgadmin
+- name: Install adminer
+  apt:
+    name: adminer
+  when: feature_adminer
+
+# Enable phpmyadmin
+- name: Adding phpmyadmin in apache2
+  file:
+    src: /etc/phpmyadmin/apache.conf
+    dest: /etc/apache2/conf-available/phpmyadmin.conf
+    owner: root
+    group: root
+    state: link
+  when: feature_phpmyadmin
+- name: Enabling phpmyadmin in apache2
+  file:
+    src: /etc/apache2/conf-available/phpmyadmin.conf
+    dest: /etc/apache2/conf-enabled/phpmyadmin.conf
+    owner: root
+    group: root
+    state: link
+  notify:
+    - restart apache2
+  when: feature_phpmyadmin
+
+# Setup phppgadmin
+- name: Change security for phppgadmin
+  replace:
+    path: /etc/apache2/conf-enabled/phppgadmin.conf
+    regexp: '^Require local'
+    replace: '#Require local'
+    backup: yes
+  notify:
+    - restart apache2
+  when: feature_phppgadmin
+
+# Enable phpmyadmin
+- name: Adding adminer in apache2
+  copy:
+    src: adminer.conf
+    dest: /etc/apache2/conf-available/adminer.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart apache2
+  when: feature_adminer
+- name: Enabling adminer in apache2
+  file:
+    src: /etc/apache2/conf-available/adminer.conf
+    dest: /etc/apache2/conf-enabled/adminer.conf
+    owner: root
+    group: root
+    state: link
+  notify:
+    - restart apache2
+  when: feature_adminer
+
+# Linking directories
+- name: Chown html
+  file:
+    path: /var/www/html
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: 0775
+- name: Chown html
+  file:
+    path: /var/www/html
+    state: directory
+    owner: www-data
+    group: www-data
+    recurse: yes
+- name: Creating symlink for www
+  file:
+    src:  /var/www
+    dest: /srv/www
+    owner: sysadm
+    group: sysadm
+    state: link
+
+# TODO adding additional features
+# TODO adding SSL

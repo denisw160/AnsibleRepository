@@ -104,6 +104,12 @@ The following roles can be used and customized in the Ansible playbooks. All pla
  	- Default role install common packages and create an admin and application user.
  - postfix
  	- Installed the mail system and setup the smart host.
+ - java
+ 	- Install Oracle JDK.
+ - apache2
+ 	- Install Apache2 with php.
+ - tomcat
+ 	- Install Apache Tomcat.
 
 ## Variables
 
@@ -124,6 +130,19 @@ For role common:
 For role postfix:
  - postfix_relyhost
  	- name for the postfix-server
+
+For role apache2 you can install some features, set the variables to true for install. Default values are:
+ - feature_phpmyadmin: false
+ - feature_phppgadmin: false
+ - feature_adminer: false
+
+For role tomcat:
+ - tomcat_user
+ 	- username for the administrator
+ 	- default: admin
+ - tomcat_password
+ 	- password for the administrator
+ 	- default admin
 
 ## Playbooks
 

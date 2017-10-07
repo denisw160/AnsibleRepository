@@ -1,0 +1,10 @@
+# file: roles/common/defaults/main.yml
+
+#
+# Variables for the common apache2
+#
+
+# Features for install (true = install | false = no install)
+feature_phpmyadmin: false
+feature_phppgadmin: false
+feature_adminer: false
