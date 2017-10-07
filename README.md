@@ -64,6 +64,8 @@ Login in the server (via ssh) with your admin account and execute the following 
     }
     ```
 
+Steps 1 to 3 are in the bash-script "install-ansible.sh".
+
 ## Customizing
 
 If you want to customize the installation all Ansible variables are stored in
@@ -88,13 +90,34 @@ In the main.yml you can setup / change the roles for the servers.
 
 1. Check the result from the Ansible commandline.
 
-# Roles
+## Other playbooks
 
-The following roles can be used and customized in the Ansible playbooks.
+Some other playbooks with simple tasks can be found in playbooks.
+
+# Roles & Playbooks
+
+The following roles can be used and customized in the Ansible playbooks. All playbooks used the host-group "servers".
 
 ## Roles
 
+ - common
+   Default role install common packages and create an admin and application user.
+
 ## Variables
+
+For role common:
+ - admin_user: username for the administrator, default: admin
+ - admin_password: password for the administrator, default admin
+ - application_user: username for application user, default: apps
+ - application_password: password for the application user, default: apps
+
+## Playbooks
+
+ - main.yml
+   This is the default playbook, it installs only the role "common".
+
+ - dev-server.yml
+   TODO
 
 
 # General
@@ -103,7 +126,7 @@ For using Ansible used the documentation on: http://docs.ansible.com/ansible/lat
 
 ## Directory Layout
 
-This repository use the 
+This repository use the following structure
 
 	production                # inventory file for production servers
 	staging                   # inventory file for staging environment

@@ -11,12 +11,15 @@
     upgrade: dist
 
 # Install system tools
-- name: Install mutt
-  apt:
-    name: mutt
 - name: Install htop
   apt:
     name: htop
+- name: Install iotop
+  apt:
+    name: iotop
+- name: Install iftop
+  apt:
+    name: iftop
 - name: Install mc
   apt:
     name: mc
@@ -32,22 +35,51 @@
 - name: Install rsync
   apt:
     name: rsync
+- name: Install git
+  apt:
+    name: git
 - name: Install software-properties-common
   apt:
     name: software-properties-common
 - name: Install python-software-properties
   apt:
     name: python-software-properties
+- name: Install apt-transport-https
+  apt:
+    name: apt-transport-https
+- name: Install screen
+  apt:
+    name: screen
 
-# Creating IoT user with group
-- name: Create group iot
+# Creating users with groups
+- name: Create group for admin
   group:
-    name: iot
-- name: Create user iot
+    name: "{{ admin_user }}"
+- name: Create admin user
   user:
-    name: iot
-    password: "{{ iot_password }}"
-    group: iot
+    name: "{{ admin_user }}"
+    password: "{{ admin_password }}"
+    group: "{{ admin_user }}"
     shell: /bin/bash
   notify:
-    - user iot created
+    - admin user created
+- name: Grant admin rights
+  lineinfile:
+    path: "/etc/sudoers.d/{{ admin_user }}"
+    create: yes
+    state: present
+    regexp: "^{{ admin_user }} ALL="
+    line: "{{ admin_user }} ALL=(ALL) ALL"
+    validate: "/usr/sbin/visudo -cf %s"
+
+- name: Create group for application
+  group:
+    name: "{{ application_user }}"
+- name: Create application user
+  user:
+    name: "{{ application_user }}"
+    password: "{{ application_password }}"
+    group: "{{ application_user }}"
+    shell: /bin/bash
+  notify:
+    - application user created

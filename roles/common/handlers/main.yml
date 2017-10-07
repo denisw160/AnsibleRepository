@@ -5,6 +5,10 @@
 #
 
 # Message after user creation
-- name: user iot created
+- name: admin user created
   debug:
-    msg: "Created user iot with password {{ iot_password }}"
+    msg: "Created admin user {{ admin_user }} with password {{ admin_password }}"
+
+- name: application user created
+  debug:
+    msg: "Created application user {{ application_user }} with password {{ application_password }}"

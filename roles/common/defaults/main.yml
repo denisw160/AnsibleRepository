@@ -1,0 +1,12 @@
+# file: roles/common/defaults/main.yml
+
+#
+# Variables for the common role
+#
+
+# Users
+admin_user: admin
+admin_password: admin
+
+application_user: apps
+application_password: apps
