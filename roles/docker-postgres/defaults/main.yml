@@ -1,0 +1,8 @@
+# file: roles/docker-postgres/defaults/main.yml
+
+#
+# Variables for the docker-postgres role
+#
+
+# Users
+postgres_password: admin

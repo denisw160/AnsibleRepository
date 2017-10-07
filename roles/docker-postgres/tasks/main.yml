@@ -1,0 +1,19 @@
+# file: roles/docker-postgres/tasks/main.yml
+
+#
+# This playbook deploy Postgres Database as docker container.
+#
+
+# Postgres Database
+ - name: Deploy container postgres
+   docker_container:
+    name: postgres-server
+    image: postgres:latest
+    state: started
+    restart_policy: always
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "9432:5432"
+    env:
+        POSTGRES_PASSWORD: "{{ postgres_password }}"

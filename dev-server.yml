@@ -17,6 +17,10 @@
     - docker-registry
     - docker-cleanup
     - docker-maven
+    - docker-adminer
+    - docker-postgres
+    
+    # choose an management tool for docker container
     #- portainer
     #- rancher
 

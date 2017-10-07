@@ -1,0 +1,17 @@
+# file: roles/docker-adminer/tasks/main.yml
+
+#
+# This playbook deploy adminer as docker container.
+#
+
+# Adminer
+ - name: Deploy container adminer
+   docker_container:
+    name: adminer-server
+    image: adminer:latest
+    state: started
+    restart_policy: always
+    ports:
+      - "9001:8080"
+
+# TODO Setup SSL

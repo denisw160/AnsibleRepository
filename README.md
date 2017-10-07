@@ -130,6 +130,10 @@ The following roles can be used and customized in the Ansible playbooks. All pla
  	- Install container meltwater/docker-cleanup for cleanup old containers.
  - docker-maven
  	- Install a script to run maven as container.
+ - docker-adminer 
+ 	- Deploy container Adminer on Port 9001. 
+ - docker-postgres
+ 	- Deploy container PostgreSQL on Port 9432.
  - portainer
  	- Deploy Portainer on Port 9000. 
  - rancher
