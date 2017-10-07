@@ -14,7 +14,11 @@
     - java
     - docker
     - docker-compose
+    - docker-registry
+    - docker-cleanup
     - docker-maven
+    #- portainer
+    #- rancher
 
 
 # TODO adding nfs shares for docker machines

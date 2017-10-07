@@ -124,8 +124,16 @@ The following roles can be used and customized in the Ansible playbooks. All pla
  	- Install Docker.
  - docker-compose
  	- Install docker-compose and run as container. 
+  - docker-registry 
+ 	- Deploy docker-registry on Port 5000. 
+  - docker-cleanup
+ 	- Install container meltwater/docker-cleanup for cleanup old containers.
  - docker-maven
- 	- Install a script to run maven as container. 
+ 	- Install a script to run maven as container.
+ - portainer
+ 	- Deploy Portainer on Port 9000. 
+ - rancher
+ 	- Deploy Rancher on Port 9000. 
 
 ## Variables
 

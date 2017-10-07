@@ -24,6 +24,10 @@
    apt:
     name: docker-ce
     state: present
+ 
+ - name: Install python package docker
+   pip:
+    name: docker
 
  - name: Starting docker
    service:

@@ -1,0 +1,17 @@
+# file: roles/rancher/tasks/main.yml
+
+#
+# This playbook deploy rancher as docker container.
+#
+
+# Rancher
+ - name: Deploy container rancher
+   docker_container:
+    name: rancher-server
+    image: rancher/server:stable
+    state: started
+    restart_policy: always
+    volumes:
+      - rancher-data:/var/lib/mysql
+    ports:
+      - "9000:8080"

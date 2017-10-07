@@ -1,0 +1,19 @@
+# file: roles/portainer/tasks/main.yml
+
+#
+# This playbook deploy portainer as docker container.
+#
+
+# Portainer
+ - name: Deploy container portainer
+   docker_container:
+    name: portainer-server
+    image: portainer/portainer:latest
+    state: started
+    restart_policy: always
+    privileged: yes
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer-data:/data
+    ports:
+      - "9000:9000"

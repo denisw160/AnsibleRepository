@@ -1,0 +1,19 @@
+# file: roles/docker-registry/tasks/main.yml
+
+#
+# This playbook deploy docker registry as docker container.
+#
+
+# Docker Registry
+ - name: Deploy container registry
+   docker_container:
+    name: registry-server
+    image: registry:2
+    state: started
+    restart_policy: always
+    volumes:
+      - registry-data:/var/lib/registry
+    ports:
+      - "5000:5000"
+
+# TODO Setup SSL
