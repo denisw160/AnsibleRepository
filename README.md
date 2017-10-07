@@ -124,6 +124,8 @@ The following roles can be used and customized in the Ansible playbooks. All pla
  	- Install Docker.
  - docker-compose
  	- Install docker-compose and run as container. 
+ - docker-maven
+ 	- Install a script to run maven as container. 
 
 ## Variables
 

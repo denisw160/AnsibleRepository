@@ -1,0 +1,14 @@
+# file: roles/docker-maven/tasks/main.yml
+
+#
+# This playbook install a script for running maven as docker container.
+#
+
+# Docker-Maven
+ - name: Installing docker-maven8
+   copy:
+      src: docker-maven8
+      dest: /usr/local/bin/docker-maven8
+      owner: root
+      group: root
+      mode: 755

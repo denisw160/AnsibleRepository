@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# Run maven in a container
+#
+set -e
+
+VERSION="3.5.0-jdk-8"
+IMAGE="maven:$VERSION"
+
+exec docker run -it --rm -v maven-repo:/root/.m2 -v "$PWD":/project -w /project $IMAGE mvn "$@"
