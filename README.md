@@ -105,7 +105,6 @@ For using Ansible used the documentation on: http://docs.ansible.com/ansible/lat
 
 This repository use the 
 
-    ```
 	production                # inventory file for production servers
 	staging                   # inventory file for staging environment
 	development				  # inventory file for testing environment
@@ -146,4 +145,3 @@ This repository use the
 	        lookup_plugins/   # or other types of plugins, like lookup in this case (optional)
 
 	    other/                # same kind of structure as "common" was above
-	```
