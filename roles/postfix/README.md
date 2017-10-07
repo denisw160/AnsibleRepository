@@ -1,1 +1,2 @@
-this hierarchy represents the role "postfix" and installed the postfix mail system.
+this hierarchy represents the role "postfix"
+install the postfix mail system

@@ -1,0 +1,18 @@
+# file: roles/java/tasks/main.yml
+
+#
+# This playbook install java on the server.
+#
+
+# Java
+- name: Adding java repository
+  apt_repository:
+      repo: 'ppa:webupd8team/java'
+
+- name: Accept java 8 license
+  debconf: name='oracle-java8-installer' question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
+  
+- name: Install java 8
+  apt:
+    update_cache: yes
+    name: oracle-java8-installer
