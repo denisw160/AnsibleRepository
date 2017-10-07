@@ -101,20 +101,28 @@ The following roles can be used and customized in the Ansible playbooks. All pla
 ## Roles
 
  - common
-   Default role install common packages and create an admin and application user.
+ 	- Default role install common packages and create an admin and application user.
 
 ## Variables
 
 For role common:
- - admin_user: username for the administrator, default: admin
- - admin_password: password for the administrator, default admin
- - application_user: username for application user, default: apps
- - application_password: password for the application user, default: apps
+ - admin_user
+ 	- username for the administrator
+ 	- default: admin
+ - admin_password
+ 	- password for the administrator
+ 	- default admin
+ - application_user
+ 	- username for application user
+ 	- default: apps
+ - application_password
+ 	- password for the application user
+ 	- default: apps
 
 ## Playbooks
 
  - main.yml
-   This is the default playbook, it installs only the role "common".
+ 	- This is the default playbook, it installs only the role "common".
 
  - dev-server.yml
    TODO
