@@ -7,7 +7,7 @@
 # Eclipse Che 
  - name: Deploy container eclipse che 
    docker_container:
-    name: eclipse-che-server
+    name: eclipse-che
     image: eclipse/che:latest
     state: started
     restart_policy: always
