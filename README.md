@@ -1,7 +1,5 @@
 # Repository for Ansible
 
-{:toc}
-
 ## Installation
 First install your machine with Ubuntu, you can download the Ubuntu Server from https://www.ubuntu.com/download/server. 
 Mount the image in the virtual machine and power up. Run the installer with your favorite setting. Add the OpenSSH Server
@@ -73,25 +71,27 @@ group_vars.
 
 ## Setup the roles and server
 
-TODO!!!
+Now the server is prepared for setup with Ansible. This directory must be transferred
+to the server and before execute the Ansible playbooks.
 
-Now the server is prepared for setup with Ansible.
-This directory must be transferred to the server and then 
-execute the Ansible playbook.
+The host are configured in the following files 
+ - production: for productive servers
+ - staging: for pre-live servers
+ - development: for testing servers
  
+In the main.yml you can setup / change the roles for the servers.
 
-1. Copy the playbooks on the server and start the setup
+1. Execute the Ansible playbook
     ```bash
-    $ ansible-playbook -i production main.yml
+    $ ansible-playbook -i [production|staging|development] main.yml
     ```
 
-1. Verify the open ports
-    ```bash
-    $ sudo netstat -tulpn
-    ```
+1. Check the result from the Ansible commandline.
+
+# Roles
 
 ## Include roles
 
 
-## General
+# General
 

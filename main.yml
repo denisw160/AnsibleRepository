@@ -1,0 +1,14 @@
+# file: main.yml
+
+#
+# This the main playbook for the servers.
+# It must be run as privileged user.
+#
+
+- hosts: servers
+  become: yes
+  become_method: sudo
+  roles:
+    - common
+    - postfix
+    - java

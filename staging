@@ -1,0 +1,8 @@
+# file: staging
+
+#
+# This file contains the host group for the installation.
+#
+
+[servers]
+localhost
