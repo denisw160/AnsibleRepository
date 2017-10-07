@@ -19,11 +19,14 @@
     - docker-maven
     - docker-adminer
     - docker-postgres
+
+    # Optional extentions
+    - docker-jenkins
+    - docker-sonarqube
     
     # choose an management tool for docker container
     #- portainer
     #- rancher
-
 
 # TODO adding nfs shares for docker machines
 #    - name: Updating system

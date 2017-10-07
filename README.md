@@ -134,6 +134,10 @@ The following roles can be used and customized in the Ansible playbooks. All pla
  	- Deploy container Adminer on Port 9001. 
  - docker-postgres
  	- Deploy container PostgreSQL on Port 9432.
+ - docker-sonarqube
+ 	- Running SonarQube with PostgreSQL on Port 9090.
+ - docker-jenkins
+ 	- Deploy container Jenkins on Port 9091 and 50000.
  - portainer
  	- Deploy Portainer on Port 9000. 
  - rancher

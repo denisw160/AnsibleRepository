@@ -99,8 +99,8 @@
   file:
     src:  /var/www
     dest: /srv/www
-    owner: sysadm
-    group: sysadm
+    owner: root
+    group: root
     state: link
 
 # TODO adding additional features

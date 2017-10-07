@@ -25,11 +25,25 @@
     name: docker-ce
     state: present
  
+# TODO Check if pip is required as apt install
+
  - name: Install python package docker
    pip:
     name: docker
+
+ - name: Install python package docker-compose
+   pip:
+    name: docker-compose
 
  - name: Starting docker
    service:
     name: docker 
     state: started
+
+- name: Creating symlink for docker
+  file:
+    src:  /var/lib/docker
+    dest: /srv/docker
+    owner: root
+    group: root
+    state: link

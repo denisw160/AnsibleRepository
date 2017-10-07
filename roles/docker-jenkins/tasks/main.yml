@@ -1,0 +1,18 @@
+# file: roles/docker-jenkins/tasks/main.yml
+
+#
+# This playbook deploy jenkins as docker container.
+#
+
+# Jenkins
+ - name: Deploy container jenkins
+   docker_container:
+    name: jenkins-server
+    image: jenkins:latest
+    state: started
+    restart_policy: always
+    volumes:
+      - jenkins-data:/var/jenkins_home
+    ports:
+      - "9091:8080"
+      - "50000:50000"

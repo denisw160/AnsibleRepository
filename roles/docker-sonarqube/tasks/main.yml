@@ -1,0 +1,24 @@
+# file: roles/docker-sonarqube/tasks/main.yml
+
+#
+# This playbook runs SonarQube with Postgres as docker service.
+#
+
+# SonarQube
+ - name: Copy docker-compose.yml for sonarqube
+   copy:
+     src: docker-compose.yml
+     dest: /tmp/docker-compose.yml
+
+ - name: Deploy service sonarqube
+   docker_service:
+    project_src: /tmp
+    files:
+      - docker-compose.yml
+    pull: yes
+    state: present
+
+ - name: Remove docker-compose.yml for sonarqube 
+   file:
+     path: /tmp/docker-compose.yml
+     state: absent
