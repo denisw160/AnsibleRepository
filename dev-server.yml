@@ -13,3 +13,28 @@
   roles:
     - java
     - docker
+    - docker-compose
+
+
+# TODO adding nfs shares for docker machines
+#    - name: Updating system
+#      apt: 
+#        update_cache: yes
+#
+#    - name: Install nfs-common
+#      apt:
+#        name: nfs-common
+#        state: present
+#
+#    - name: Create target directory
+#      file:
+#        path: '{{ target }}' 
+#        state: directory
+#        mode: 0755
+#
+#    - name: Installing and mounting share
+#      mount:
+#        name: '{{ target }}'
+#        src: '{{ share }}'
+#        fstype: nfs
+#        state: mounted

@@ -1,0 +1,14 @@
+# file: roles/docker-compose/tasks/main.yml
+
+#
+# This playbook install Docker-Compose as Docker container.
+#
+
+# Docker-Compose
+ - name: Get the Docker-Compose release 1.16.1
+   get_url:
+      url: https://github.com/docker/compose/releases/download/1.16.1/run.sh
+      dest: /usr/local/bin/docker-compose
+      owner: root
+      group: root
+      mode: 755

@@ -122,6 +122,8 @@ The following roles can be used and customized in the Ansible playbooks. All pla
  	- Installs Apache Cassandra.
  - docker
  	- Install Docker.
+ - docker-compose
+ 	- Install docker-compose and run as container. 
 
 ## Variables
 
