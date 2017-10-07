@@ -11,6 +11,7 @@
     image: eclipse/che:latest
     state: started
     restart_policy: always
+    command: start
     privileged: yes
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
