@@ -143,6 +143,8 @@ For role tomcat:
  - tomcat_password
  	- password for the administrator
  	- default admin
+ - feature_probe: true
+ - feature_port_8181
 
 ## Playbooks
 

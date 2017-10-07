@@ -13,6 +13,14 @@
   apt:
     name: mutt
 
+- name: Creating symlink for mail
+  file:
+    src: /var/mail
+    dest: /srv/mail
+    owner: root
+    group: root
+    state: link
+
 # Setup smart host for postfix
 - name: Setup smart host
   replace:

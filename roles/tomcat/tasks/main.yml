@@ -1,0 +1,75 @@
+# file: roles/tomcat/tasks/main.yml
+
+#
+# This playbook installed and configure the apache tomcat.
+#
+
+# Application Server
+- name: Install tomcat application server
+  apt: name={{item}} state=installed
+  with_items:
+    - tomcat8
+    - tomcat8-admin
+    - tomcat8-common
+    - tomcat8-docs
+    - tomcat8-examples
+    - tomcat8-user
+
+# Setup Tomcat
+- name: Change tomcat8 port to 8181
+  replace:
+    path: /etc/tomcat8/server.xml
+    regexp: 'port="8080"'
+    replace: 'port="8181"'
+    backup: yes
+  notify:
+    - restart tomcat8
+  when: feature_port_8181  
+- name: Adding tomcat user
+  template:
+    src: tomcat-users.xml.j2
+    dest: /etc/tomcat8/tomcat-users.xml
+    owner: root
+    group: tomcat8
+    mode: 0640
+    backup: yes
+  notify:
+    - restart tomcat8
+    - tomcat user created
+
+# Adding probe application
+- name: Install psi-probe
+  get_url:
+    url: https://github.com/psi-probe/psi-probe/releases/download/2.4.0.SP1/probe.war
+    dest: /var/lib/tomcat8/webapps/probe.war
+    owner: tomcat8
+    group: tomcat8
+    mode: 0664
+  when: feature_probe
+
+# Linking directories
+- name: Chown webapps
+  file:
+    path: /var/lib/tomcat8/webapps
+    state: directory
+    owner: tomcat8
+    group: tomcat8
+    mode: 0775
+- name: Chown webapps
+  file:
+    path: /var/lib/tomcat8/webapps
+    state: directory
+    owner: tomcat8
+    group: tomcat8
+    recurse: yes
+- name: Creating symlink for tomcat
+  file:
+    src: /var/lib/tomcat8
+    dest: /srv/tomcat
+    owner: root
+    group: root
+    state: link
+
+# TODO adding more default applications
+# TODO adding SSL or reverse proxy
+# TODO change logging for logrote

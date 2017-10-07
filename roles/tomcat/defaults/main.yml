@@ -1,0 +1,13 @@
+# file: roles/tomcat/defaults/main.yml
+
+#
+# Variables for the tomcat tole
+#
+
+# Users
+tomcat_user: admin
+tomcat_password: admin
+
+# Features for install (true = install | false = no install)
+feature_probe: true
+feature_port_8181: false
