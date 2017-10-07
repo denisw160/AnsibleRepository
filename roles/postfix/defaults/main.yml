@@ -1,0 +1,8 @@
+# file: postfix/common/defaults/main.yml
+
+#
+# Variables for the common postfix
+#
+
+# Users
+postfix_relyhost: mail.home.lan

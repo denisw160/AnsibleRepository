@@ -1,0 +1,17 @@
+# file: roles/postfix/handlers/main.yml
+
+#
+# This handlers are used for the mail server installation.
+#
+
+# Restarting service
+- name: restart postfix
+  service:
+    name: postfix
+    state: restarted
+
+
+# Message after setup changed
+- name: postfix setup changed
+  debug:
+    msg: "Postfix smart host is set to {{ postfix_relyhost }}"

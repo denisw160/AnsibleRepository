@@ -102,6 +102,8 @@ The following roles can be used and customized in the Ansible playbooks. All pla
 
  - common
  	- Default role install common packages and create an admin and application user.
+ - postfix
+ 	- Installed the mail system and setup the smart host.
 
 ## Variables
 
@@ -118,6 +120,10 @@ For role common:
  - application_password
  	- password for the application user
  	- default: apps
+
+For role postfix:
+ - postfix_relyhost
+ 	- name for the postfix-server
 
 ## Playbooks
 

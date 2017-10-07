@@ -1,0 +1,25 @@
+# file: roles/postfix/tasks/main.yml
+
+#
+# This playbook install postfix on the server and setups the smarthost.
+#
+
+# Install mail server
+- name: Install postfix
+  apt:
+    name: postfix
+
+- name: Install mutt
+  apt:
+    name: mutt
+
+# Setup smart host for postfix
+- name: Setup smart host
+  replace:
+    path: /etc/postfix/main.cf
+    regexp: '^relayhost = .*$'
+    replace: 'relayhost = {{ postfix_relyhost }}'
+    backup: yes
+  notify:
+    - restart postfix
+    - postfix setup changed
