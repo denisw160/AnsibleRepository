@@ -24,8 +24,10 @@
    apt:
     name: docker-ce
     state: present
- 
-# TODO Check if pip is required as apt install
+
+ - name: Install python-pip
+   apt:
+    name: python-pip
 
  - name: Install python package docker
    pip:
