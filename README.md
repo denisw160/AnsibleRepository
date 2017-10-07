@@ -138,6 +138,8 @@ The following roles can be used and customized in the Ansible playbooks. All pla
  	- Running SonarQube with PostgreSQL on Port 9090.
  - docker-jenkins
  	- Deploy container Jenkins on Port 9091 and 50000.
+ - docker-gitlab
+ 	- Deploy container GitLab on Port 9080, 9443 and 2222.
  - portainer
  	- Deploy Portainer on Port 9000. 
  - rancher

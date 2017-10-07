@@ -21,8 +21,9 @@
     - docker-postgres
 
     # Optional extentions
-    - docker-jenkins
-    - docker-sonarqube
+    #- docker-jenkins
+    #- docker-sonarqube
+    - docker-gitlab
     
     # choose an management tool for docker container
     #- portainer

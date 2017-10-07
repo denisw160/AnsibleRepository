@@ -1,0 +1,21 @@
+# file: roles/docker-gitlab/tasks/main.yml
+
+#
+# This playbook deploy GitLab as docker container.
+#
+
+# GitLab
+ - name: Deploy container gitlab
+   docker_container:
+    name: gitlab-server
+    image: gitlab/gitlab-ce:latest
+    state: started
+    restart_policy: always
+    volumes:
+      - gitlab-config:/etc/gitlab
+      - gitlab-logs:/var/log/gitlab
+      - gitlab-data:/var/opt/gitlab
+    ports:
+      - "9080:80"
+      - "9443:443"
+      - "2222:22"

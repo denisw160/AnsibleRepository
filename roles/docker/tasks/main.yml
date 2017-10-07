@@ -40,8 +40,8 @@
     name: docker 
     state: started
 
-- name: Creating symlink for docker
-  file:
+ - name: Creating symlink for docker
+   file:
     src:  /var/lib/docker
     dest: /srv/docker
     owner: root
