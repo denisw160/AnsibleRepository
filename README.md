@@ -57,7 +57,7 @@ Login in the server (via ssh) with your admin account and execute the following 
     $ ansible server -m ping
     ```
     The result look like that
-    ```xml
+    ```ini
     localhost | SUCCESS => {
         "changed": false,
         "ping": "pong"
