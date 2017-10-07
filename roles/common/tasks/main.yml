@@ -59,6 +59,7 @@
   user:
     name: "{{ admin_user }}"
     password: "{{ admin_password }}"
+    update_password: on_create
     group: "{{ admin_user }}"
     shell: /bin/bash
   notify:
@@ -79,6 +80,7 @@
   user:
     name: "{{ application_user }}"
     password: "{{ application_password }}"
+    update_password: on_create
     group: "{{ application_user }}"
     shell: /bin/bash
   notify:

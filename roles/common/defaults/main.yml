@@ -6,7 +6,9 @@
 
 # Users
 admin_user: admin
-admin_password: admin
+admin_password: $6$O6gQtO6t$wlPXJWRcPFMWSj/2s9.F7Pi15M2TBT1lSaUDxcQS8wRqky8jpfkE.WYRFwSpkD.P45VEmhzGe2fFfLmMUkOrb0
+# password is admin
 
 application_user: apps
-application_password: apps
+application_password: $6$.hRA.bi71aDVynR$fNKgPsi7bAT6P.DIwFw6F5uVwsBn1lmcA0Dp9n5OyuJRTeAEBoYjFqW501yUBqzxWpMepwViWIYN2M1e0L/tV.
+# password is apps

@@ -1,0 +1,29 @@
+# file: roles/postgresql/tasks/main.yml
+
+#
+# This playbook installed and configure the postgresql server.
+#
+
+# PostgreSQL
+- name: Install postgresql
+  apt: name={{item}} state=installed
+  with_items:
+    - postgresql
+    - postgresql-client
+    - python-psycopg2
+
+# Setup postgres
+- name: Change postgres password
+  command: su - postgres -c "psql -U postgres -d postgres -c \"alter user postgres with password '{{ postgresql_password }}';\""
+
+- name: Create postgresql user
+  postgresql_user:
+    login_user: postgres
+    login_password: "{{ postgresql_password }}"
+    login_host: localhost
+    db: postgres
+    user: "{{ postgresql_user }}"
+    password: "{{ postgresql_password }}"
+    role_attr_flags: SUPERUSER
+  notify:
+    - postgresql user created

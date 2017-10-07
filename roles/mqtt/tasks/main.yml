@@ -1,0 +1,15 @@
+# file: roles/mqtt/tasks/main.yml
+
+#
+# This playbook installed the Mosquitto MQTT.
+#
+
+# Mosquitto MQTT
+- name: Install mosquitto mqtt
+  apt: name={{item}} state=installed
+  with_items:
+    - mosquitto
+    - mosquitto-clients
+
+# TODO add SSL
+# TODO add users

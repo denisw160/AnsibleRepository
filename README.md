@@ -110,6 +110,13 @@ The following roles can be used and customized in the Ansible playbooks. All pla
  	- Install Apache2 with php.
  - tomcat
  	- Install Apache Tomcat.
+ - mqtt
+ 	- Install a MQTT broker.
+ - mariadb
+ 	- Installs the Mariadb database.
+ - postgresql
+ 	- Installs the Postgresql database.
+
 
 ## Variables
 
@@ -146,13 +153,27 @@ For role tomcat:
  - feature_probe: true
  - feature_port_8181
 
+For role mariadb:
+ - mariadb_user: sqladmin
+ - mariadb_password: admin
+
+ For role postgresql:
+ - postgresql_user: sqladmin
+ - postgresql_password: admin
+
 ## Playbooks
 
  - main.yml
  	- This is the default playbook, it installs only the role "common".
 
+ - app-server.yml
+ 	- This playbook installs an application server with apache2 and tomcat.
+
+ - db-server.yml
+ 	- This playbook installs databases on a server.
+
  - dev-server.yml
-   TODO
+ 	- This playbook install a development server with dev tools.
 
 
 # General

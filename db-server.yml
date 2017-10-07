@@ -1,0 +1,15 @@
+# file: db-server.yml
+
+#
+# This the playbook installs database on the server.
+# It must be run as privileged user.
+#
+
+- import_playbook: main.yml
+
+- hosts: servers
+  become: yes
+  become_method: sudo
+  roles:
+    - mariadb
+    - postgresql

@@ -1,0 +1,32 @@
+# file: roles/mariadb/tasks/main.yml
+
+#
+# This playbook installed and configure the mariadb server.
+#
+
+# MariaDB Server
+- name: Install mariadb server
+  apt: name={{item}} state=installed
+  with_items:
+    - mariadb-server
+    - mariadb-client
+    - python-mysqldb
+
+# Setup MariaDB
+- name: Change case-sensetiv for mariadb
+  lineinfile:
+    path: /etc/mysql/mariadb.conf.d/50-server.cnf
+    regexp: '^lower_case_table_names = 1'
+    insertafter: '^[mysqld]'
+    line: 'lower_case_table_names = 1'
+    backup: yes
+  notify:
+    - restart mariadb
+- name: Create mariadb user sqladmin
+  mysql_user:
+    name: "{{ mariadb_user }}"
+    password: "{{ mariadb_password }}"
+    priv: '*.*:ALL'
+    state: present
+  notify:
+    - mariadb user created

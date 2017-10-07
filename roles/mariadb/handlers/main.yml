@@ -1,0 +1,15 @@
+# file: roles/mariadb/handlers/main.yml
+
+#
+# This handlers are used for the mariadb installation.
+#
+
+# Restart mariadb
+- name: restart mariadb
+  service:
+    name: mysql
+    state: restarted
+
+- name: mariadb user created
+  debug:
+    msg: "Created mariadb user {{ mariadb_user }} with password {{ mariadb_password }}"

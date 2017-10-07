@@ -1,0 +1,9 @@
+# file: roles/postgresql/defaults/main.yml
+
+#
+# Variables for the postgresql tole
+#
+
+# Users
+postgresql_user: sqladmin
+postgresql_password: admin

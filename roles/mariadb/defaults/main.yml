@@ -1,0 +1,9 @@
+# file: roles/mariadb/defaults/main.yml
+
+#
+# Variables for the mariadb tole
+#
+
+# Users
+mariadb_user: sqladmin
+mariadb_password: admin

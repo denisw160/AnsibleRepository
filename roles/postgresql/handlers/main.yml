@@ -1,0 +1,15 @@
+# file: roles/postgresql/handlers/main.yml
+
+#
+# This handlers are used for the postgresql installation.
+#
+
+# Restart
+- name: restart postgresql
+  service:
+    name: postgresql
+    state: restarted
+
+- name: postgresql user created
+  debug:
+    msg: "Created postgresql user {{ postgresql_user }} with password {{ postgresql_password }}"

@@ -1,0 +1,14 @@
+# file: dev-server.yml
+
+#
+# This the playbook installs an development server.
+# It must be run as privileged user.
+#
+
+- import_playbook: main.yml
+
+- hosts: servers
+  become: yes
+  become_method: sudo
+  roles:
+    - java
