@@ -1,0 +1,10 @@
+# file: roles/common/handlers/main.yml
+
+#
+# This handlers are used for the common installation.
+#
+
+# Message after user creation
+- name: user iot created
+  debug:
+    msg: "Created user iot with password {{ iot_password }}"

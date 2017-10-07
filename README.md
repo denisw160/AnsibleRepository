@@ -90,8 +90,60 @@ In the main.yml you can setup / change the roles for the servers.
 
 # Roles
 
-## Include roles
+The following roles can be used and customized in the Ansible playbooks.
+
+## Roles
+
+## Variables
 
 
 # General
 
+For using Ansible used the documentation on: http://docs.ansible.com/ansible/latest/playbooks_best_practices.html.
+
+## Directory Layout
+
+This repository use the 
+
+    ```
+	production                # inventory file for production servers
+	staging                   # inventory file for staging environment
+	development				  # inventory file for testing environment
+
+	group_vars/
+	   all                    # variables for all groups (optional)
+	   group1                 # here we assign variables to particular groups (optional)
+	   group2                 # ""
+	host_vars/
+	   hostname1              # if systems need specific variables, put them here (optional)
+	   hostname2              # ""
+
+	library/                  # if any custom modules, put them here (optional)
+	module_utils/             # if any custom module_utils to support modules, put them here (optional)
+	filter_plugins/           # if any custom filter plugins, put them here (optional)
+
+	main.yml                  # master playbook
+
+	roles/
+	    common/               # this hierarchy represents a "role"
+	        tasks/            # 
+	            main.yml      #  <-- tasks file can include smaller files if warranted
+	        handlers/         #
+	            main.yml      #  <-- handlers file
+	        templates/        #  <-- files for use with the template resource
+	            ntp.conf.j2   #  <------- templates end in .j2
+	        files/            #
+	            bar.txt       #  <-- files for use with the copy resource
+	            foo.sh        #  <-- script files for use with the script resource
+	        vars/             #
+	            main.yml      #  <-- variables associated with this role
+	        defaults/         #
+	            main.yml      #  <-- default lower priority variables for this role
+	        meta/             #
+	            main.yml      #  <-- role dependencies
+	        library/          # roles can also include custom modules (optional)
+	        module_utils/     # roles can also include custom module_utils (optional)
+	        lookup_plugins/   # or other types of plugins, like lookup in this case (optional)
+
+	    other/                # same kind of structure as "common" was above
+	```

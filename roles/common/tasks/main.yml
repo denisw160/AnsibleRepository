@@ -1,0 +1,53 @@
+# file: roles/common/tasks/main.yml
+
+#
+# This playbook installed and configure the common packages of the server.
+#
+
+# Install system updates
+- name: Update all packages to the latest version
+  apt:
+    update_cache: yes
+    upgrade: dist
+
+# Install system tools
+- name: Install mutt
+  apt:
+    name: mutt
+- name: Install htop
+  apt:
+    name: htop
+- name: Install mc
+  apt:
+    name: mc
+- name: Install wget
+  apt:
+    name: wget
+- name: Install ca-certificates
+  apt:
+    name: ca-certificates
+- name: Install curl
+  apt:
+    name: curl
+- name: Install rsync
+  apt:
+    name: rsync
+- name: Install software-properties-common
+  apt:
+    name: software-properties-common
+- name: Install python-software-properties
+  apt:
+    name: python-software-properties
+
+# Creating IoT user with group
+- name: Create group iot
+  group:
+    name: iot
+- name: Create user iot
+  user:
+    name: iot
+    password: "{{ iot_password }}"
+    group: iot
+    shell: /bin/bash
+  notify:
+    - user iot created
