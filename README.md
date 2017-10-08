@@ -106,6 +106,8 @@ The following roles can be used and customized in the Ansible playbooks. All pla
  	- Installed the mail system and setup the smart host.
  - java
  	- Install Oracle JDK.
+ - maven
+    - Install Maven.
  - apache2
  	- Install Apache2 with php.
  - tomcat
@@ -147,7 +149,7 @@ The following roles can be used and customized in the Ansible playbooks. All pla
  - rancher
  	- Deploy Rancher on port 9000. 
  - eclipse-che
- 	- Running cloud development on port 8080
+ 	- Running cloud development on port 8080 - do not install other applications with open ports.
 
 ## Variables
 

@@ -1,0 +1,10 @@
+# file: roles/maven/tasks/main.yml
+
+#
+# This playbook install maven on the server.
+#
+
+# Java
+- name: Install maven
+  apt:
+    name: maven
