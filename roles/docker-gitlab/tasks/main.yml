@@ -16,6 +16,6 @@
       - gitlab-logs:/var/log/gitlab
       - gitlab-data:/var/opt/gitlab
     ports:
-      - "9080:80"
-      - "9443:443"
+      - "8000:80"
+      - "8888:443"
       - "2222:22"

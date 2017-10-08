@@ -12,6 +12,6 @@
     state: started
     restart_policy: always
     ports:
-      - "9001:8080"
+      - "7001:8080"
 
 # TODO Setup SSL

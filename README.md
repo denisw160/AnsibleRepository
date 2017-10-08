@@ -109,15 +109,15 @@ The following roles can be used and customized in the Ansible playbooks. All pla
  - maven
     - Install Maven.
  - apache2
- 	- Install Apache2 with php.
+ 	- Install Apache2 with php - port 80.
  - tomcat
- 	- Install Apache Tomcat.
+ 	- Install Apache Tomcat - port 8080.
  - mqtt
  	- Install a MQTT broker.
  - mariadb
- 	- Installs the Mariadb database.
+ 	- Installs the Mariadb database - port 3306.
  - postgresql
- 	- Installs the Postgresql database.
+ 	- Installs the Postgresql database - port 5432.
  - mongodb
  	- Installs the MongoDB.
  - cassandra
@@ -135,15 +135,15 @@ The following roles can be used and customized in the Ansible playbooks. All pla
  - docker-maven
  	- Install a script to run maven as container.
  - docker-adminer 
- 	- Deploy container Adminer on port 9001. 
+ 	- Deploy container Adminer on port 7001. 
  - docker-postgres
- 	- Deploy container PostgreSQL on port 9432.
+ 	- Deploy container PostgreSQL on port 7432.
  - docker-sonarqube
- 	- Running SonarQube with PostgreSQL on port 9090.
+ 	- Running SonarQube with PostgreSQL on port 9002.
  - docker-jenkins
- 	- Deploy container Jenkins on ports 9091 and 50000.
+ 	- Deploy container Jenkins on ports 9001 and 50000.
  - docker-gitlab
- 	- Deploy container GitLab on ports 9080, 9443 and 2222.
+ 	- Deploy container GitLab on ports 8000, 8888 and 2222.
  - portainer
  	- Deploy Portainer on port 9000. 
  - rancher
