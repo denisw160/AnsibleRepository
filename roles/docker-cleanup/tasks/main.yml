@@ -1,7 +1,7 @@
 # file: roles/docker-cleanup/tasks/main.yml
 
 #
-# This playbook deploy portainer as meltwater/docker-cleanup.
+# This playbook deploy meltwater/docker-cleanup
 #
 
 # docker-cleanup

@@ -1,0 +1,16 @@
+# file: roles/docker-watchtower/tasks/main.yml
+
+#
+# This playbook deploy v2tec/watchtower
+#
+
+# Watchtwoer
+ - name: Deploy container v2tec/watchtower
+   docker_container:
+    name: watchtower
+    image: v2tec/watchtower:latest
+    state: started
+    restart_policy: always
+    privileged: yes
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:rw

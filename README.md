@@ -128,6 +128,8 @@ The following roles can be used and customized in the Ansible playbooks. All pla
  	- Deploy docker-registry on Port 5000. 
   - docker-cleanup
  	- Install container meltwater/docker-cleanup for cleanup old containers.
+  - docker-watchtwoer
+    - Install container watchtower for automatic update old containers.
  - docker-maven
  	- Install a script to run maven as container.
  - docker-adminer 
