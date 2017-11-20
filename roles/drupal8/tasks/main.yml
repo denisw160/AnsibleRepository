@@ -66,6 +66,7 @@
     mode: 0644
     backup: yes
     remote_src: no
+    state: file
 
 - name: Delete index.hml
   file:
