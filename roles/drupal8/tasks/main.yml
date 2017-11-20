@@ -80,8 +80,6 @@
 
 - name: Create mariadb user drupal
   mysql_user:
-    login_user: "{{ mariadb_user }}"
-    login_password: "{{ mariadb_password }}"
     name: "{{ drupal_user }}"
     password: "{{ drupal_password }}"
     priv: 'drupal.*:ALL'
