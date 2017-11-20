@@ -29,7 +29,7 @@
 
 - name: Extract drupal.tar.gz into /tmp
   unarchive:
-    src: drupal.tar.gz
+    src: /tmp/drupal.tar.gz
     dest: /tmp
     remote_src: no
 
