@@ -1,4 +1,4 @@
-# file: app-server.yml
+# file: drupal-server.yml
 
 #
 # This the playbook installs a drupal server.
