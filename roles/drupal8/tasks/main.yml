@@ -27,20 +27,35 @@
     url: https://ftp.drupal.org/files/projects/drupal-8.4.2.tar.gz
     dest: /tmp/drupal.tar.gz
 
-- name: Extract drupal.tar.gz into /tmp
+- name: Extract drupal.tar.gz into /var/www/html
   unarchive:
     src: /tmp/drupal.tar.gz
-    dest: /tmp
-    remote_src: no
-
-- name: Copy drupal to /var/www/html
-  copy:
-    src: /tmp/drupal-8.4.2/
     dest: /var/www/html/
-    owner: www-data
-    group: www-data
-    mode: 0644
-    backup: yes
+    remote_src: no
+    extra_opts: [--strip-components=1]
+
+- name: Change owner of install
+  file:
+      dest: /var/www/html 
+      owner: www-data
+      group: www-data
+      mode: 0644 
+      recurse: yes
+
+# - name: Extract drupal.tar.gz into /tmp
+#   unarchive:
+#     src: /tmp/drupal.tar.gz
+#     dest: /tmp
+#     remote_src: no
+
+# - name: Copy drupal to /var/www/html
+#   copy:
+#     src: /tmp/drupal-8.4.2/
+#     dest: /var/www/html/
+#     owner: www-data
+#     group: www-data
+#     mode: 0644
+#     backup: yes
 
 - name: Copy drupal config
   copy:
