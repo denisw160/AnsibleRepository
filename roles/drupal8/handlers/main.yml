@@ -10,6 +10,6 @@
     name: apache2
     state: restarted
 
-- name: mariadb user created
+- name: mariadb drupal created
   debug:
     msg: "Created mariadb user {{ drupal_user }} with password {{ drupal_password }}"

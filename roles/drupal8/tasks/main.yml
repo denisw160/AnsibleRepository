@@ -85,4 +85,4 @@
     priv: 'drupal.*:ALL'
     state: present
   notify:
-    - mariadb user created
+    - mariadb drupal created
