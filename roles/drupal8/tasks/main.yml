@@ -63,8 +63,9 @@
     dest: /var/www/html/sites/default/settings.php
     owner: www-data
     group: www-data
-    mode: 0664
+    mode: 0644
     backup: yes
+    remote_src: no
 
 - name: Delete index.hml
   file:
