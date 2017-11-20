@@ -35,9 +35,9 @@
 
 - name: Copy drupal to /var/www/html
   copy:
-    src: /tmp/drupal-8.4.2
-    dest: /var/www/html
-    owner: apache
+    src: /tmp/drupal-8.4.2/
+    dest: /var/www/html/
+    owner: www-data
     group: www-data
     mode: 0644
     backup: yes
@@ -46,7 +46,7 @@
   copy:
     src: /var/www/html/sites/default/default.settings.php
     dest: /var/www/html/sites/default/settings.php
-    owner: root
+    owner: www-data
     group: www-data
     mode: 0664
     backup: yes
