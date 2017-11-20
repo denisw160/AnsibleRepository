@@ -1,0 +1,15 @@
+# file: roles/drupal8/handlers/main.yml
+
+#
+# This handlers are used for the drupal installation.
+#
+
+# Restart apache
+- name: restart apache2
+  service:
+    name: apache2
+    state: restarted
+
+- name: mariadb user created
+  debug:
+    msg: "Created mariadb user {{ drupal_user }} with password {{ drupal_password }}"

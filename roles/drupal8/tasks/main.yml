@@ -1,0 +1,68 @@
+# file: roles/drupal8/tasks/main.yml
+
+#
+# This playbook installed and configure the drupal server.
+#
+
+# Drupal8 Server
+- name: Install php modules for drupal
+  apt: name={{item}} state=installed
+  with_items:
+    - php-mysql 
+    - php-xml 
+    - php-gd 
+    - php-json 
+    - php-curl
+
+
+- name: Enable rewrite
+  apache2_module:
+    state: present
+    name: rewrite
+  notify:
+    - restart apache2
+
+- name: Download drupal8
+  get_url:
+    url: https://ftp.drupal.org/files/projects/drupal-8.4.2.tar.gz
+    dest: /tmp/drupal.tar.gz
+
+- name: Extract drupal.tar.gz into /tmp
+  unarchive:
+    src: drupal.tar.gz
+    dest: /tmp
+
+- name: Copy drupal to /var/www/html
+  copy:
+    src: /tmp/drupal-8.4.2
+    dest: /var/www/html
+    owner: apache
+    group: www-data
+    mode: 0644
+    backup: yes
+
+- name: Copy drupal config
+  copy:
+    src: /var/www/html/sites/default/default.settings.php
+    dest: /var/www/html/sites/default/settings.php
+    owner: root
+    group: www-data
+    mode: 0664
+    backup: yes
+
+# Setup database
+- name: Create a new database with name 'drupal'
+  mysql_db:
+    name: drupal
+    state: present
+
+- name: Create mariadb user drupal
+  mysql_user:
+    login_user: "{{ mariadb_user }}"
+    login_password: "{{ mariadb_password }}"
+    name: "{{ drupal_user }}"
+    password: "{{ drupal_password }}"
+    priv: 'drupal.*:ALL'
+    state: present
+  notify:
+    - mariadb user created

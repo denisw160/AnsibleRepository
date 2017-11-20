@@ -1,0 +1,16 @@
+# file: app-server.yml
+
+#
+# This the playbook installs a drupal server.
+# It must be run as privileged user.
+#
+
+- import_playbook: main.yml
+
+- hosts: servers
+  become: yes
+  become_method: sudo
+  roles:
+    - mariadb
+    - apache2
+    - drupal8

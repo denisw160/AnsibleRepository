@@ -1,0 +1,12 @@
+# file: roles/drupal8/defaults/main.yml
+
+#
+# Variables for the drupal role
+#
+
+# Users
+mariadb_user: sqladmin
+mariadb_password: admin
+
+drupal_user: drupal
+drupal_password: drupal8
