@@ -51,6 +51,11 @@
     mode: 0664
     backup: yes
 
+- name: Delete index.hml
+  file:
+    path: /var/www/html/index.html
+    state: absent
+
 # Setup database
 - name: Create a new database with name 'drupal'
   mysql_db:
