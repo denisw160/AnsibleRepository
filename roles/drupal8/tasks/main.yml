@@ -14,11 +14,21 @@
     - php-json 
     - php-curl
 
-
 - name: Enable rewrite
   apache2_module:
     state: present
     name: rewrite
+  notify:
+    - restart apache2
+
+- name: Enable overwritting for /var/www/html
+  blockinfile:
+    path: /etc/apache2/apache2.conf
+    insertafter: EOF
+    block: |
+      <Directory "/var/www/html">
+        AllowOverride All
+      </Directory>
   notify:
     - restart apache2
 
