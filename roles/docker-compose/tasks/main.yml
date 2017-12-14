@@ -11,4 +11,4 @@
       dest: /usr/local/bin/docker-compose
       owner: root
       group: root
-      mode: 755
+      mode: 0755
