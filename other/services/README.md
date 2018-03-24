@@ -6,9 +6,9 @@ Then use the following commands
 
 1. Reload all service files
 
-	$ systemctl daemon-reload
+  $ systemctl daemon-reload
 
 1. Start and enable the service
 
-	$ systemctl start gogs
-	$ systemctl enable gogs
+  $ systemctl start gogs
+  $ systemctl enable gogs
