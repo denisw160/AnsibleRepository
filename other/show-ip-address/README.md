@@ -8,4 +8,4 @@ This script is optimized for Ubuntu.
 ## Installation
 For install execute the following command with an admin user. SUDO is required. 
 
-    $ sudo bash <(curl -s https://raw.githubusercontent.com/denisw160/AnsibleRepository/master/other/show-ip-address/install-show-ip-address.sh)
+    $ curl -s https://raw.githubusercontent.com/denisw160/AnsibleRepository/master/other/show-ip-address/install-show-ip-address.sh | sudo bash
