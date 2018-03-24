@@ -1,0 +1,17 @@
+[Unit]
+ Description=Jetbrains UpSource
+ After=syslog.target
+ After=network.target
+ After=mariadb.service mysqld.service postgresql.service memcached.service redis.service
+ 
+ [Service]
+ Type=simple
+ User=jetbrains
+ Group=jetbrains
+ WorkingDirectory=/home/jetbrains/app/upsource/bin
+ ExecStart=/home/jetbrains/app/upsource/bin/upsource.sh run
+ Restart=always
+ 
+ [Install]
+ WantedBy=multi-user.target
+ 

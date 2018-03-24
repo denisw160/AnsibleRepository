@@ -1,0 +1,17 @@
+[Unit]
+ Description=Jetbrains Hub
+ After=syslog.target
+ After=network.target
+ After=mariadb.service mysqld.service postgresql.service memcached.service redis.service
+ 
+ [Service]
+ Type=simple
+ User=jetbrains
+ Group=jetbrains
+ WorkingDirectory=/home/jetbrains/app/hub/bin
+ ExecStart=/home/jetbrains/app/hub/bin/hub.sh run
+ Restart=always
+ 
+ [Install]
+ WantedBy=multi-user.target
+ 

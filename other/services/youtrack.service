@@ -1,0 +1,17 @@
+[Unit]
+ Description=Jetbrains YouTrack
+ After=syslog.target
+ After=network.target
+ After=mariadb.service mysqld.service postgresql.service memcached.service redis.service
+ 
+ [Service]
+ Type=simple
+ User=jetbrains
+ Group=jetbrains
+ WorkingDirectory=/home/jetbrains/app/youtrack/bin
+ ExecStart=/home/jetbrains/app/youtrack/bin/youtrack.sh run
+ Restart=always
+ 
+ [Install]
+ WantedBy=multi-user.target
+ 
