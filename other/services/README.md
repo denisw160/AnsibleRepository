@@ -8,7 +8,7 @@ Then use the following commands
   
     $ systemctl daemon-reload
     
-  1. Start and enable the service
+  2. Start and enable the service
   
     $ systemctl start gogs
     $ systemctl enable gogs
